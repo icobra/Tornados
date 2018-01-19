@@ -12,7 +12,7 @@ class Application(tornado.web.Application):
         handlers = [
             (r"/", HomeHandler),
             (r"/about", AboutHandler),
-            (r"/address", AddressHandler),
+            (r"/faq", FaqHandler),
         ]
         settings = dict(
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
@@ -23,15 +23,19 @@ class Application(tornado.web.Application):
 
 class HomeHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("Hello, main Page")
+        self.render(
+            "index.html",
+            page_title = "Tornados главная",
+            header_text = "Мы рады вам",
+        )
 
 class AboutHandler(tornado.web.RequestHandler):
     def get(self):
         self.write("About me page")
 
-class AddressHandler(tornado.web.RequestHandler):
+class FaqHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("Address is")
+        self.write("Fast answers and questions")
 
 def main():
     tornado.options.parse_command_line()
