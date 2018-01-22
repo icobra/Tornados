@@ -33,7 +33,11 @@ class HomeHandler(tornado.web.RequestHandler):
 
 class AboutHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("About me page")
+        self.render(
+            "about.html",
+             page_title = "О нас",
+             header_text = "Мы работаем с 2008 года",
+        )
 
 class FaqHandler(tornado.web.RequestHandler):
     def get(self):

@@ -1,0 +1,17 @@
+loader = template.Loader("./")
+
+err500 = open("./static/500.html" , "w")
+err500.write(loader.load("Error.html").generate(error="<h2>Server Error</h2>", title="Error"))
+err500.close()
+
+err400 = open("./static/400.html" , "w")
+err400.write(loader.load("Error.html").generate(error="<h2>Not Found</h2>", title="Error"))
+err400.close()
+
+Error.html template:
+{% extends defaultTemplate.html %}
+
+{% block content %}
+    {{ error }}
+{% end %}
+
