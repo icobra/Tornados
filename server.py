@@ -23,7 +23,7 @@ class Application(tornado.web.Application):
             debug=True,
         )
         super(Application, self).__init__(handlers, **settings)
-        print(os.path.join(os.path.dirname(__file__), "/home/good/tornados/static"))
+        print(os.path.join(os.path.dirname(__file__), "static"))
 
 class HomeHandler(tornado.web.RequestHandler):
     def get(self):
