@@ -15,6 +15,7 @@ class Application(tornado.web.Application):
             (r"/", HomeHandler),
             (r"/about", AboutHandler),
             (r"/faq", FaqHandler),
+            (r"/test", TestHandler),
         ]
         settings = dict(
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
@@ -42,6 +43,14 @@ class AboutHandler(tornado.web.RequestHandler):
 class FaqHandler(tornado.web.RequestHandler):
     def get(self):
         self.write("Fast answers and questions")
+
+class TestHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render(
+            "test.html",
+            page_title = "Test",
+            header_text = "Проверка функционала",
+        )
 
 def main():
     tornado.options.parse_command_line()
