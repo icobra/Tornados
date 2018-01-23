@@ -51,6 +51,8 @@ class TestHandler(tornado.web.RequestHandler):
             page_title = "Test",
             header_text = "Проверка функционала",
         )
+    def javascript_files(self):
+        return "js/script.js"
 
 def main():
     tornado.options.parse_command_line()
