@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block header %}
+   <h1>{{ header_text }}</h1>
+{% end %}
+
+{% block body %}
+   <div id="hello">
+      <p> Тестовая страница <p>
+      <p> Проверка JS <p>
+      <p> ... <p>
+   <div>
+    <script type="text/javascript">
+    document.write("У Вас включён JavaScript!");
+    </script>
+   
+   <script src="http://code.jquery.com/jquery-3.2.0.js" type="text/javascript"></script>
+   <script src="{{ static_url("script.js") }}" type="text/javascript"></script>  
+ 
+{% end %}
